@@ -29,7 +29,7 @@ public class ATMDispenseChain {
             Scanner input = new Scanner(System.in);
             amount = input.nextInt();
             atmDispenser.c1.dispense(new Currency(amount));
-            System.out.println("Dispensing " + ConsoleColors.GREEN_BOLD + "finished" + "\n");
+            System.out.println("Dispensing " + ConsoleColors.GREEN_BOLD + "finished." + "\n");
         } while (newDispensing());
 
     }
@@ -39,7 +39,12 @@ public class ATMDispenseChain {
         Scanner input2 = new Scanner(System.in);
         String decision = input2.nextLine();
 
-        return decision.equalsIgnoreCase("y");
+        if (decision.equalsIgnoreCase("y")) {
+            return true;
+        } else {
+            System.out.println(ConsoleColors.RED_BOLD + "Exiting...");
+            return false;
+        }
     }
 
 }
